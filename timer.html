@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+            let second=0;
+            let minute=0;
+            const starts=()=>{
+                if(second==60)
+                {
+                    minute++;
+                    second=0;
+                }
+                second++;
+                document.getElementById("timer").innerHTML=minute+":"+second;
+                setTimeout("starts()",1000);
+            }
+        
+    </script>
+</head>
+<body>
+    <button onclick="starts()" >start</button>
+    <div id="timer" ></div>
+</body>
+</html>

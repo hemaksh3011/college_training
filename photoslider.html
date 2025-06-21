@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let count = 1;
+
+        const sliders = () => {
+            setTimeout("sliders()", 1000);
+            if (count == 1) {
+                image.src = "screenshot (143).png"
+                count++;
+            }
+            else if (count == 2) {
+                image.src = "screenshot (144).png"
+                count++;
+            }
+            else if (count == 3) {
+                image.src = "screenshot (145).png"
+                count++;
+            }
+            else if (count == 4) {
+                image.src = "screenshot (146).png"
+                count = 1;
+            }
+        }
+    </script>
+</head>
+
+<body onload="sliders()">
+    <img src="Screenshot (143).png" title="slider image" name="image" height="300px" alt="">
+
+</body>
+
+</html>

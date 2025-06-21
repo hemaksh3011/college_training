@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <style>
+        * {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        header {
+            display: flex;
+            height: 10vh;
+        }
+
+        .left {
+            background-color: blanchedalmond;
+            width: 55vw;
+        }
+
+        .left>p {
+            display: inline-block;
+            font-size: 1.5rem;
+            padding: 1.5rem 20rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .mid {
+            background-color: blanchedalmond;
+            width: 35vw;
+        }
+
+        ul li {
+            display: inline-block;
+            padding: 1rem 1.5rem;
+        }
+
+        .right {
+            background-color: blanchedalmond;
+
+            width: 10vw;
+        }
+
+        .right>i {
+            padding: 2rem 0 2rem 8rem;
+            font-size: 1.5rem;
+        }
+
+        .first {
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            background-color: blanchedalmond;
+
+        }
+
+        .data {
+            padding-top: 3rem;
+            justify-items: center;
+            align-items: center;
+            line-height: 1rem;
+
+        }
+
+        .data p:nth-child(1),
+        .data p:nth-child(2) {
+            font-size: 3rem;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+
+        }
+
+
+        .second {
+            height: 100vh;
+            font-optical-sizing: auto;
+            font-style: normal;
+            background-color: beige;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            /* darker blue on hover */
+        }
+
+        .firstdata {
+            justify-items: center;
+            padding: 3rem;
+        }
+
+        .firstdata p:nth-child(1) {
+            font-size: 2rem;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            line-height: 1rem;
+
+        }
+
+        .griding {
+            width: 20rem;
+            height: 10rem;
+            border: 1px solid black;
+        }
+
+        .seconddata {
+            display: grid;
+            justify-self: center;
+            grid-template-columns: 1fr 1fr 1fr;
+            /* grid-template-rows: auto auto; */
+            gap: 2rem;
+            /* place-items: center; */
+        }
+
+        .seconddata>div {
+            padding: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="left">
+            <p>Consulat</p>
+        </div>
+        <div class="mid">
+            <ul>
+                <li>Home</li>
+                <li>Product</li>
+                <li>Pricing</li>
+                <li>Contact</li>
+                <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                <li><i class="fa-solid fa-list-ul"></i></li>
+            </ul>
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+    <main>
+        <section class="first">
+            <div class="data">
+                <p>First-class Business</p>
+                <p>Consultant</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                <p>Lorem ipsum dolor sit </p>
+                <div class="btns">
+                    <button>Get now </button>
+                    <button>Learn more</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="second">
+            <div class="firstdata">
+                <p>Industry</p>
+                <p>Lorem ipsum dolor sit amet </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div class="seconddata">
+                <div class="griding">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione odio debitis
+                    maxime nemo dicta? Atque repudiandae dolorem labore aperiam. Non!</div>
+                <div class="griding">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione odio debitis
+                    maxime nemo dicta? Atque repudiandae dolorem labore aperiam. Non!</div>
+                <div class="griding">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione odio debitis
+                    maxime nemo dicta? Atque repudiandae dolorem labore aperiam. Non!</div>
+                <div class="griding">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione odio debitis
+                    maxime nemo dicta? Atque repudiandae dolorem labore aperiam. Non!</div>
+                <div class="griding">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione odio debitis
+                    maxime nemo dicta? Atque repudiandae dolorem labore aperiam. Non!</div>
+                <div class="griding">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione odio debitis
+                    maxime nemo dicta? Atque repudiandae dolorem labore aperiam. Non!</div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

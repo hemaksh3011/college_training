@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const stores=()=>{
+            let Username = document.getElementById("name").value;
+            let Age = document.getElementById("age").value;
+
+            localStorage.setItem("Username",Username);
+            localStorage.setItem("Age",Age);
+
+            document.getElementById("name").value="";
+            document.getElementById("age").value="";
+
+        }
+
+        const getstoreData=()=>{
+            let name_value = localStorage.getItem("Username");
+            let age_value= localStorage.getItem("Age");
+
+            document.getElementById("name").value=name_value;
+            document.getElementById("age").value = age_value;
+
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="name" ><br><br>
+    <input type="number" id="age" ><br><br>
+    <button onclick="stores()" >save</button>
+
+    <button onclick="getstoreData()" >show data</button>
+</body>
+</html>

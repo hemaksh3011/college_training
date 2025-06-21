@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let arr = new Array("11","22","33","44");
+        // document.write(arr[0]);
+
+        let arr=["11","22","33","44"];
+
+        for(i=0;i<arr.length;i++)
+            document.write(arr[i]+"<br/>");
+        
+            arr.push("55");
+            document.write(arr);
+        
+            arr.pop();
+            document.write("<br/>"+arr);
+
+            arr.shift();
+            document.write("<br/>"+arr);
+
+            arr.unshift("88");
+            document.write("<br/>"+arr);
+
+            let person=[
+
+            {
+                "name":"rahul",
+                "age":"20",
+                "city":"udaipur"
+
+            },
+            {
+                "name":"mohit",
+                "age":"25",
+                "city":"jaipur"
+                
+            },
+
+            ];
+
+            document.write("<br/>"+person[0].name+"<br/>age="+person[0].age)
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

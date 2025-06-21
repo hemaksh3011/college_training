@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Form</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    section,
+    #resultSection {
+      width: 75rem;
+      background-color: aqua;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table tr td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    input,
+    select,
+    textarea {
+      font-size: 1rem;
+      background-color: transparent;
+      padding: 5px;
+    }
+
+    caption {
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 10px 0;
+    }
+
+    #resultSection {
+      display: none;
+      background-color: #f4f4f4;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Student Form -->
+  <section id="formSection">
+    <table>
+      <caption>Student Information</caption>
+      <tr>
+        <td><input type="text" id="fname" placeholder="First Name" /></td>
+        <td><input type="text" id="mname" placeholder="Middle Name" /></td>
+        <td><input type="text" id="lname" placeholder="Last Name" /></td>
+      </tr>
+      <tr>
+        <td><input type="date" id="dob" /></td>
+        <td><input type="number" id="enroll" placeholder="Enrollment No" /></td>
+      </tr>
+    </table>
+
+    <br />
+
+    <table>
+      <caption>Address</caption>
+      <tr>
+        <td colspan="2"><input type="text" id="mainaddress" placeholder="Main Address" /></td>
+      </tr>
+      <tr>
+        <td><input type="text" id="city" placeholder="City" /></td>
+        <td><input type="text" id="state" placeholder="State" /></td>
+      </tr>
+      <tr>
+        <td><input type="text" id="country" placeholder="Country" /></td>
+        <td><input type="number" id="zip" placeholder="ZIP" /></td>
+      </tr>
+    </table>
+
+    <br />
+
+    <table>
+      <caption>Contact Information</caption>
+      <tr>
+        <td><input type="email" id="mail" placeholder="Email" /></td>
+        <td><input type="number" id="contactno" placeholder="Contact No" /></td>
+      </tr>
+    </table>
+
+    <br />
+
+    <table>
+      <caption>Course Details</caption>
+      <tr>
+        <td>
+          <select id="course">
+            <option value="bcom">BCom</option>
+            <option value="bba">BBA</option>
+            <option value="bca">BCA</option>
+            <option value="bsc">BSc</option>
+          </select>
+        </td>
+        <td>
+          <select id="medium">
+            <option value="hindi">Hindi</option>
+            <option value="english">English</option>
+          </select>
+        </td>
+        <td><input type="number" id="session" placeholder="Session Year" /></td>
+      </tr>
+    </table>
+
+    <br />
+
+    <textarea id="comments" rows="4" placeholder="Comments"></textarea>
+    <br />
+    <button onclick="show()">Submit</button>
+  </section>
+
+  <!-- Result Section -->
+  <section id="resultSection">
+    <h2>Submitted Details</h2>
+    <table id="resultTable"></table>
+  </section>
+
+  <script>
+    function show() {
+      const fname = document.getElementById("fname").value;
+      const mname = document.getElementById("mname").value;
+      const lname = document.getElementById("lname").value;
+      const dob = document.getElementById("dob").value;
+      const enroll = document.getElementById("enroll").value;
+      const mainaddress = document.getElementById("mainaddress").value;
+      const city = document.getElementById("city").value;
+      const state = document.getElementById("state").value;
+      const country = document.getElementById("country").value;
+      const zip = document.getElementById("zip").value;
+      const mail = document.getElementById("mail").value;
+      const contactno = document.getElementById("contactno").value;
+      const course = document.getElementById("course").value;
+      const medium = document.getElementById("medium").value;
+      const session = document.getElementById("session").value;
+      const comments = document.getElementById("comments").value;
+
+      // Hide form and show result section
+      document.getElementById("formSection").style.display = "none";
+      document.getElementById("resultSection").style.display = "block";
+
+      const resultHTML = `
+        <tr><td>Full Name</td><td>${fname} ${mname} ${lname}</td></tr>
+        <tr><td>Date of Birth</td><td>${dob}</td></tr>
+        <tr><td>Enrollment No</td><td>${enroll}</td></tr>
+        <tr><td>Address</td><td>${mainaddress}, ${city}, ${state}, ${country} - ${zip}</td></tr>
+        <tr><td>Email</td><td>${mail}</td></tr>
+        <tr><td>Contact No</td><td>${contactno}</td></tr>
+        <tr><td>Course</td><td>${course}</td></tr>
+        <tr><td>Medium</td><td>${medium}</td></tr>
+        <tr><td>Session</td><td>${session}</td></tr>
+        <tr><td>Comments</td><td>${comments}</td></tr>
+      `;
+
+      document.getElementById("resultTable").innerHTML = resultHTML;
+    }
+  </script>
+</body>
+
+</html>

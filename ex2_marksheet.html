@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    let arrproduct_name=[];
+    let arrproduct_quantity=[];
+    let arrproduct_price=[];
+
+    const addData=()=>{
+        let productname = document.getElementById("productname").value;
+        let quantity = document.getElementById("price").value;
+        let price = document.getElementById("price").value;
+
+        if (productname===" " || quantity===" "||price===" " ){
+            
+        }
+
+    }
+
+</script>
+
+<body>
+    <table id="input_table" align="center" border="1" cellpadding="15" >
+        <tr>
+            <td>Product Name</td>
+            <td>
+                <select id="productname">
+                    <option value="">Select product</option>
+                    <option value="shirt">Shirt</option>
+                    <option value="jeans">Jeans</option>
+                    <option value="shoes">Shoes</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><input type="text" id="quantity" /></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" id="price" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button id="addBtn" onclick="addData()">Add</button>
+            </td>
+        </tr>
+    </table>
+
+    <div id="product_list"></div>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        var arrproduct_name = [];
+        var arrproduct_price = [];
+        var arrproduct_quantity = [];
+
+        const addData = () => {
+            let product_name = document.getElementById("product").value;
+            let product_price = document.getElementById("price").value;
+            let product_quantity = document.getElementById("quantity").value;
+
+            arrproduct_name.push(product_name);
+            arrproduct_price.push(product_price);
+            arrproduct_quantity.push(product_quantity);
+
+            let tb = "<table border=1 align='center' cellspacing=0 cellpadding=10>";
+            tb += "<tr><th>S.No</th><th>Product Name</th><th>Price</th><th>Quantity</th></tr>";
+
+            for (let i = 0; i < arrproduct_name.length; i++) {
+                tb += "<tr>";
+                tb += "<td>" + (i + 1) + "</td>";
+                tb += "<td>" + arrproduct_name[i] + "</td>";
+                tb += "<td>" + arrproduct_price[i] + "</td>";
+                tb += "<td>" + arrproduct_quantity[i] + "</td>";
+                tb += "</tr>";
+            }
+
+            tb += "</table>";
+            document.getElementById("product_list").innerHTML = tb;
+        }
+    </script>
+</head>
+<body>
+    <table border="1" align="center" cellpadding="5">
+        <tr>
+            <td>Product</td>
+            <td>
+                <select name="product" id="product">
+                    <option value="">Select</option>
+                    <option value="Shirt">Shirt</option>
+                    <option value="Pant">Pant</option>
+                    <option value="Shoes">Shoes</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><input type="text" id="quantity"></td> <!-- Fixed: id was quality -->
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" id="price"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="addData()">Add to Array</button></td>
+        </tr>
+    </table>
+
+    <div id="product_list" style="margin-top: 20px;"></div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let discount = 0;
+
+        const calc_amount=()=>{
+            let qu = document.getElementById("quantity").value;
+            let pr = document.getElementById("price").value;
+            let am = parseInt(qu) * parseInt(pr);
+            document.getElementById("amount").value = am ;
+            
+            let totalamount = am-discount ; 
+            document.getElementById("amt").value = totalamount;
+        }
+        // const get_price=(x)=>{
+        //     if(x=="aaaa"){
+        //         let a = document.getElementById("product").value;
+        //         let aaaa = 250;
+        //         document.getElementById("price").value = aaaa;
+        //     }else if(x=="bbbb"){
+        //         let b = document.getElementById("product").value;
+        //         let bbbb = 300 ;
+        //         document.getElementById("price").value = bbbb;
+        //     }else if(x=="cccc"){
+        //         let c = document.getElementById("product").value;
+        //         let cccc = 150 ;
+        //         document.getElementById("price").value = cccc;
+        //     }else if(x=="dddd"){
+        //         let d = document.getElementById("product").value;
+        //         let dddd = 450 ;
+        //         document.getElementById("price").value = dddd;
+        //     }    
+        // }
+
+
+
+        // alternative code logic for less writing
+        const get_price=(x)=>{
+            let product_price = 0;
+            if(x=="aaaa"){
+                 product_price = 250;
+                 discount = 50;
+            }else if(x=="bbbb"){
+                 product_price = 300 ;
+                 discount = 10;
+            }else if(x=="cccc"){
+                product_price = 150 ;
+                discount = 20;
+
+            }else if(x=="dddd"){
+                 product_price = 450 ; 
+                 discount = 0;
+         
+            }    
+                document.getElementById("price").value = product_price;
+                document.getElementById("discount").value = discount;
+        }
+
+       
+
+
+        </script>
+</head>
+<body>
+    <table border="1" align="center" cellpadding="10" >
+        <tr>
+            <td>product: <select name="product" id="product" onchange="get_price(this.value)" >
+                <option value="">select</option>
+                <option value="aaaa">aaaa</option>
+                <option value="bbbb">bbbb</option>
+                <option value="cccc">cccc</option>
+                <option value="dddd">dddd</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>quantity: <input type="number" id="quantity" ></td>
+        </tr>
+        <tr>
+            <td>discount: <input type="number" id="discount"  readonly ></td>
+        </tr>
+        <tr>
+            <td>price: <input type="number" id="price" readonly ></td>
+        </tr>
+        <tr>
+            <td>amount:<input type="number" id="amount" onblur="calc_amount()" ></td>
+        </tr>
+        <tr>
+            <td>final amount:<input type="number" id="amt" onfocus="calc_amount()" ></td>
+        </tr>
+    </table>
+</body>
+</html>
