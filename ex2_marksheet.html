@@ -1,59 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>College Marksheet</title>
+  <script>
+    let students = [], subjects = [], courses = [], internals = [], externals = [], statuses = [], gpas = [], totals = [], grades = [];
 
-<script>
-    let arrproduct_name=[];
-    let arrproduct_quantity=[];
-    let arrproduct_price=[];
+    const getgrade = (total) => {
+      if (total >= 90) return "A+";
+      else if (total >= 80) return "A";
+      else if (total >= 70) return "B+";
+      else if (total >= 60) return "B";
+      else if (total >= 50) return "C";
+      else return "D";
+    };
 
-    const addData=()=>{
-        let productname = document.getElementById("productname").value;
-        let quantity = document.getElementById("price").value;
-        let price = document.getElementById("price").value;
+    const getgpa = (grade) => {
+      switch (grade) {
+        case "A+": return 10;
+        case "A": return 9;
+        case "B+": return 8;
+        case "B": return 7;
+        case "C": return 6;
+        case "D": return 4;
+        default: return 0;
+      }
+    };
 
-        if (productname===" " || quantity===" "||price===" " ){
-            
+    const enter = () => {
+      const student_name = document.getElementById("student_name").value;
+      const course_name = document.getElementById("course_name").value;
+      const subject_name = document.getElementById("subject_name").value;
+      const internal_marks = document.getElementById("internal").value;
+      const external_marks = document.getElementById("external").value;
+
+      if (!student_name || !course_name || !subject_name || !internal_marks || !external_marks) {
+        alert("Fill all details correctly");
+        return;
+      }
+
+      const internal = parseInt(internal_marks);
+      const external = parseInt(external_marks);
+
+      if (isNaN(internal) || isNaN(external)) {
+        alert("Marks must be numeric");
+        return;
+      }
+
+      // 🛑 Alert ONLY if limit exceeded
+      if (internal > 20 || external > 80 || internal < 0 || external < 0) {
+        alert("Internal should be max 20 and External max 80");
+        return;
+      }
+
+      const total = internal + external;
+
+      // ✅ Fail condition logic (used only for result)
+      const status = (internal < 8 || external < 35 || total > 100) ? "fail" : "pass";
+      const grade = getgrade(total);
+      const gpa = status === "pass" ? getgpa(grade) : "--";
+
+      students.push(student_name);
+      courses.push(course_name);
+      subjects.push(subject_name);
+      internals.push(internal);
+      externals.push(external);
+      totals.push(total);
+      statuses.push(status);
+      grades.push(grade);
+      gpas.push(gpa);
+
+      generate_table();
+    };
+
+    const generate_table = () => {
+      let table = `<table border='1' align='center' cellpadding='10'>
+        <tr>
+          <th>S.No</th>
+          <th>Student Name</th>
+          <th>Course Name</th>
+          <th>Subject</th>
+          <th>Internal</th>
+          <th>External</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th>Grade</th>
+          <th>GPA</th>
+        </tr>`;
+
+      let grandtotal = 0, totalgpa = 0, gpaCount = 0, hasfail = false;
+
+      for (let i = 0; i < subjects.length; i++) {
+        table += `<tr>
+          <td>${i + 1}</td>
+          <td>${students[i]}</td>
+          <td>${courses[i]}</td>
+          <td>${subjects[i]}</td>
+          <td>${internals[i]}</td>
+          <td>${externals[i]}</td>
+          <td>${totals[i]}</td>
+          <td>${statuses[i]}</td>
+          <td>${grades[i]}</td>
+          <td>${gpas[i]}</td>
+        </tr>`;
+
+        grandtotal += totals[i];
+        if (gpas[i] !== "--") {
+          totalgpa += gpas[i];
+          gpaCount++;
         }
+        if (statuses[i] === "fail") hasfail = true;
+      }
 
-    }
+      const avgGPA = gpaCount > 0 ? (totalgpa / gpaCount).toFixed(2) : 0;
+      const overallStatus = avgGPA >= 4 ? "pass" : "fail";
+      const promotionStatus = hasfail ? "Not promoted" : "Promoted";
 
-</script>
+      table += `
+        <tr><td colspan="4" align="right"><b>Grand Total</b></td><td colspan="6"><b>${grandtotal}</b></td></tr>
+        <tr><td colspan="4" align="right"><b>Average GPA</b></td><td colspan="6"><b>${avgGPA}</b></td></tr>
+        <tr><td colspan="4" align="right"><b>Overall Status</b></td><td colspan="6"><b>${overallStatus}</b></td></tr>
+        <tr><td colspan="4" align="right"><b>Promotion Status</b></td><td colspan="6"><b>${promotionStatus}</b></td></tr>
+      </table>`;
 
+      document.getElementById("marksheet").innerHTML = table;
+    };
+  </script>
+</head>
 <body>
-    <table id="input_table" align="center" border="1" cellpadding="15" >
-        <tr>
-            <td>Product Name</td>
-            <td>
-                <select id="productname">
-                    <option value="">Select product</option>
-                    <option value="shirt">Shirt</option>
-                    <option value="jeans">Jeans</option>
-                    <option value="shoes">Shoes</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Quantity</td>
-            <td><input type="text" id="quantity" /></td>
-        </tr>
-        <tr>
-            <td>Price</td>
-            <td><input type="text" id="price" /></td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center">
-                <button id="addBtn" onclick="addData()">Add</button>
-            </td>
-        </tr>
-    </table>
-
-    <div id="product_list"></div>
+  <table border="5" cellpadding="10" align="center">
+    <caption>College Marksheet</caption>
+    <tr>
+      <td>Student name:</td>
+      <td><input type="text" id="student_name" /></td>
+    </tr>
+    <tr>
+      <td>Course name:</td>
+      <td><input type="text" id="course_name" /></td>
+    </tr>
+    <tr>
+      <td>Subject name:</td>
+      <td><input type="text" id="subject_name" /></td>
+    </tr>
+    <tr>
+      <td>Internal Marks <sub>(out of 20)</sub> :</td>
+      <td><input type="text" id="internal" /></td>
+    </tr>
+    <tr>
+      <td>External Marks <sub>(out of 80)</sub> :</td>
+      <td><input type="text" id="external" /></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><button onclick="enter()">Enter</button></td>
+    </tr>
+  </table>
+  <div id="marksheet"></div>
 </body>
-
 </html>
