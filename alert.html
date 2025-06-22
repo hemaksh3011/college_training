@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <script>
+    const vali=()=>{
+        let name = document.myform.nm.value;
+        let password = document.myform.ps.value;
+        let confirm_password = document.myform.cnps.value;
+        let gender = document.myform.r1.value;
+
+        if(name == ""){
+            alert("enter user name");
+            return false;
+        }
+        else if(password == ""){
+            alert("enter password");
+            return false;
+        }
+        else if(confirm_password == ""){
+            alert("re enter password");
+            return false;
+        }else if(gender == ""){
+            alert("enter gender");
+            return false;
+        }
+
+        if(password == confirm_password)
+        {
+            return ture;
+        }else {
+            alert("re entered pass is wrong");
+            return false;
+        }
+
+        const alphacheck=(e)=>{
+            let keyId=(window.event) ? event.keyCode:e.which;
+
+            if((keyId>=65 && keyId<=90 ) || (keyId>97 && keyId<=122 ))
+            return true;
+        else 
+        return false;
+        }
+
+        return true;
+    }
+    </script>
+    <body>
+        <form name="myform" action="a.html" onsubmit="return vali()">
+            <table>
+                <tr>
+                    <td>username
+                        <input type="text" name="nm" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>password
+                        <input type="password" name="ps">
+                    </td>
+                </tr>
+                <tr>
+                    <td>confirm password
+                        <input type="password" name="cnps">
+                    </td>
+                </tr>
+                <tr>
+                    <td>gender
+                        <input type="radio" name="r1" value="male">male
+                    </td>
+                    <td>
+                        <input type="radio" name="r1" value="women"> women
+                    </td>
+                </tr>
+                <tr colspan="2" align="center" >
+                    <td><input type="submit" value="send" ></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
