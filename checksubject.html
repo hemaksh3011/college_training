@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checksubject() {
+         let arr=document.getElementsByName("chk");
+         let count=0;
+         for (let i = 0; i < arr.length; i++) {
+             if (arr[i].checked== true) 
+                    count++;
+             
+         }
+         
+         if (count <2 ) {
+             alert("Select at least two subjects.");
+         } else {
+             alert("subject selected.");
+         }
+        }
+    
+        </script>
+</head>
+<body>
+   Select Subjects:
+   <input type="checkbox" name="chk" value="c">C
+   <input type="checkbox" name="chk" value="cpp">C++    
+   <input type="checkbox" name="chk" value="java">Java
+   <input type="checkbox" name="chk" value="python">Python
+   <br/>
+   <button onclick="checksubject()">Submit</button>
+   
+</body>
+</html>

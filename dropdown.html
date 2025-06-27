@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const change_drp=(x)=>{
+          let y="<select>";
+          if(x=="rajasthan"){
+            y+= "<option value='jaipur'>Jaipur</option>";
+            y+= "<option value='udaipur'>Udaipur</option>";
+            y+= "<option value='jodhpur'>Jodhpur</option>";
+            } 
+         if(x=="maharashtra"){
+            y+= "<option value='mumbai'>Mumbai</option>";
+            y+= "<option value='pune'>Pune</option>";
+            y+= "<option value='nagpur'>Nagpur</option>";
+            } 
+         if(x=="gujarat"){
+            y+= "<option value='ahmedabad'>Ahmedabad</option>";
+            y+= "<option value='surat'>Surat</option>";
+            y+= "<option value='rajkot'>Rajkot</option>";
+            }
+        y+= "</select>";
+        document.getElementById("city").innerHTML="<br/>Selected City: "+y;
+        }
+    </script>
+</head>
+<body>
+    Select State:
+    <select onchange="change_drp(this.value)">
+        <option value="">-- Select State --</option>
+        <option value="maharashtra">Maharashtra</option>
+        <option value="gujarat">Gujarat</option>
+        <option value="rajasthan">Rajasthan</option>
+    </select>
+    <br>
+    <div id="city"></div>
+</body>
+</html>

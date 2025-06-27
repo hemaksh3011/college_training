@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armstrong Number Check</title>
+  <script>
+    function check() {
+      let n = prompt("Enter the number:");
+      let num = parseInt(n);
+      let sum = 0;
+      let t = num;
+
+      while (num != 0) {
+        let digit = num % 10;
+        sum += digit * digit * digit;
+        num = parseInt(num / 10); // floor division
+      }
+
+      if (t === sum) {
+        document.getElementById("number").innerHTML = t + " is an Armstrong number";
+      } else {
+        document.getElementById("number").innerHTML = t + " is NOT an Armstrong number";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Armstrong Number</h1>
+  <p id="number"></p>
+  <input type="submit" onclick="check()" value="Click">
+</body>
+</html>
